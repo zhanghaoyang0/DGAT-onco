@@ -1,10 +1,11 @@
 # DiffMut-W
 DiffMut-W was designed to detect oncogenes by comparing the mutaitonal profile between cancer population and natural population.
 
-The method is still on progress, please send comments and feedback to zhanghaoyang0@hotmail.com
+The method is still on progress, please send comments and feedbacks to zhanghaoyang0@hotmail.com
 
 # Requirements
 operation system: Unix/Linux
+
 python 3 (with os, sys, numpy, pandas, math packagegs installed)
 
 # Data preparation
@@ -21,7 +22,7 @@ After annotation, the vcf will be like:
 
 ... indicate information omitted here.
 M-CAP_score is the prior mutation weight we used in analysis. 
-
+Please put yuur inputfile file in data folder.
 # Usage
 python calculate.py data/inputfile top
 where inpute file is your file name, top is the number of output
@@ -29,6 +30,6 @@ where inpute file is your file name, top is the number of output
 Example:
 python calculate.py data/BRAC.vcf 50
 
-Result files is:
+Result files are:
 1. a csv with genes names and coresponding uEMDs. 
-2. a csv with genes have not results (because they have not corresponding 1000G gene with missense_mutation)
+2. a csv with genes have not results (because they have not corresponding 1000G gene with missense_mutation).
