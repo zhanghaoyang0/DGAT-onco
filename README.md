@@ -4,7 +4,7 @@ DiffMut-W was designed to detect oncogenes by comparing the mutaitonal profile b
 The method is still on progress, please send comments and feedbacks to zhanghaoyang0@hotmail.com
 
 # Requirements
-operation system: Unix/Linux
+Operation system: Unix/Linux
 
 python 3 (with os, sys, numpy, pandas, math packagegs installed)
 
