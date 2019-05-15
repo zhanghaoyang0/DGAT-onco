@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-# input is a VCF file with the INFO annotated by refGene and dbnsfp33a database through ANNOVAR (http://annovar.openbioinformatics.org/en/latest/)
-# put input file in 'data' Floder
-# then run python calculate.py data/inputfile top ; where inpute file is your file name, top is the number of output gene with top uemd.
-# for example python calculate.py data/BRAC.vcf 50
 
 import pandas as pd
 import numpy as np
@@ -18,8 +14,8 @@ if len(sys.argv) == 2:
     top = 50
 else:
     top = sys.argv[2]
-
 inputfile_path = os.getcwd() + '/' + sys.argv[1]
+
 
 def getuemd(inputfile_path, top=50):
     # load data
@@ -30,6 +26,9 @@ def getuemd(inputfile_path, top=50):
     d_1000G = np.load('1000G_M-CAP_weighted.npy').item()  # load 1000G mutation data(pre calculated for uemd measurement)
     df = pd.read_csv(inputfile_path, sep='\t', header=None)  # load data
     weight = 'M-CAP_rankscore'  # use M-CAP as prior weight
+    if 'Hugo_Symbol' not in df.iloc[0,7]:
+        print('break because not genename in your data! you should present it like "Hugo_Symbol = genename" in your INFO fields')
+        return
     if df.shape[0] == 0:
         print('break because not Missense_Mutation in your data!')
         return
@@ -43,7 +42,8 @@ def getuemd(inputfile_path, top=50):
     item = df.iloc[:, 7]
     score = [x.split(weight)[1].split(';')[0].split('=')[1] for x in item]  # get M-CAP score
     score = [float(x) if x != '.' else 0 for x in score]  # impute missing weight by 0
-    gene = [x.split(';')[0] for x in item]  # get gene
+
+    gene = [x.split('Hugo_Symbol=')[1].split(';')[0] for x in item]  # get gene
     id = [x.split('TCGA-')[1].split(';')[0] for x in item]  # get tcga id
     df = pd.DataFrame([id, gene, score]).T
     df.columns = ['id', 'gene', 'score']
@@ -84,6 +84,5 @@ def getuemd(inputfile_path, top=50):
         out.to_csv('../result/' + filename + '_result_' + top +'.csv')
 
 getuemd(inputfile_path, top)
-
 
 
