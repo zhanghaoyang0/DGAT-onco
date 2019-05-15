@@ -1,4 +1,4 @@
-# DiffMut-W
+# DGAT-onco
 DiffMut-W was designed to detect oncogenes by comparing the mutaitonal profile between cancer population and natural population.
 
 The method is still on progress, please send comments and feedbacks to zhanghaoyang0@hotmail.com
