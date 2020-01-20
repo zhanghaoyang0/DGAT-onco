@@ -7,8 +7,8 @@ Python 3
 Modules: os, sys, numpy, pandas, math, stats　　
 ## Scripts
 # maf_to_vcf.py　　
-This script generate a VCF of missense mutations from a MAF file　　
-usage: python3 maf_to_vcf.py input_file output_file　　
+This script generate a VCF of missense mutations from a MAF file  
+usage: python3 maf_to_vcf.py input_file output_file  
 "input_file": passing a address of inpute file　　
 "output_file": passing a address of output file　　
 example: python3 maf_to_vcf.py data/BRCA.maf ./BRCA.vcf　　
