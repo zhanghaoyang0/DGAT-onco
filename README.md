@@ -31,16 +31,6 @@ gene,uemd
 A1CF,1.8041124150158794e-16  
 A2M,0.0  
 ...  
-
-# Pre-calculated functional impact files from 1000Genomics data(natural population)
-Totaly 25 files of functional impacts depending to different scoring function: including:  
-```'SIFT_converted_rankscore'```, ```'Polyphen2_HDIV_rankscore'```, ```'Polyphen2_HVAR_rankscore'```, ```'LRT_converted_rankscore'```,
- ```'MutationTaster_converted_rankscore'```, ```'MutationAssessor_score_rankscore'```, ```'FATHMM_converted_rankscore'```,
- ```'PROVEAN_converted_rankscore'```, ```'VEST3_rankscore'```, ```'MetaSVM_rankscore'```, ```'MetaLR_rankscore'```, ```'M-CAP_rankscore'```,
- ```'CADD_raw_rankscore'```, ```'CADD_phred'```, ```'DANN_rankscore'```, ```'fathmm-MKL_coding_rankscore'```, ```'GenoCanyon_score_rankscore'```, ```'integrated_fitCons_score_rankscore'```,
- ```'GERP++_RS_rankscore'```, ```'phyloP100way_vertebrate_rankscore'```, ```'phyloP20way_mammalian_rankscore'```, ```'phastCons100way_vertebrate_rankscore'```,
- ```'phastCons20way_mammalian_rankscore'```, ```'SiPhy_29way_logOdds_rankscore'```, ```'constant'```  
- Note that ```'constant'```  mean weights of all mutations are equal.
 # Script files
 ## maf_to_vcf.py  
 * This script generate a VCF of missense mutations from a MAF file.  
@@ -72,9 +62,19 @@ Note that 25 scoring functions were provided (see above).
 ```score```: passing a scoring function to selected scored mutations in 1000G data  
 ```sig_test```: passing 1 for significance test, other 0  
 * Example: python3 calculate_uemd.py data/BRCA_mutmatrix.csv data/BRCA_uemd  M-CAP_rankscore 0  
+# Pre-calculated files
+Since the mutation profile of cancer population should be compared with that of natural population, the 
+functional impact profiles from 1000Genomics data had been pre-calculated.  
 
-After calculation, the result will be like:  
-## Annotation
+Totaly 25 files depending to different scoring function, including:  
+```'SIFT_converted_rankscore'```, ```'Polyphen2_HDIV_rankscore'```, ```'Polyphen2_HVAR_rankscore'```, ```'LRT_converted_rankscore'```,
+ ```'MutationTaster_converted_rankscore'```, ```'MutationAssessor_score_rankscore'```, ```'FATHMM_converted_rankscore'```,
+ ```'PROVEAN_converted_rankscore'```, ```'VEST3_rankscore'```, ```'MetaSVM_rankscore'```, ```'MetaLR_rankscore'```, ```'M-CAP_rankscore'```,
+ ```'CADD_raw_rankscore'```, ```'CADD_phred'```, ```'DANN_rankscore'```, ```'fathmm-MKL_coding_rankscore'```, ```'GenoCanyon_score_rankscore'```, ```'integrated_fitCons_score_rankscore'```,
+ ```'GERP++_RS_rankscore'```, ```'phyloP100way_vertebrate_rankscore'```, ```'phyloP20way_mammalian_rankscore'```, ```'phastCons100way_vertebrate_rankscore'```,
+ ```'phastCons20way_mammalian_rankscore'```, ```'SiPhy_29way_logOdds_rankscore'```, ```'constant'```  
+ Note that ```'constant'```  mean weights of all mutations are equal.
+# Annotation
 The VCF generated from ```maf_to_vcf.py```　should be annotated by  dbnsfp33a dataset.  
 
 Depending your MAF build, the annotation can be conducted by ANNOVAR('http://annovar.openbioinformatics.org/en/latest/user-guide/download/') by following commands:  
