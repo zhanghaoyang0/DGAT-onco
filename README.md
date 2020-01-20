@@ -36,9 +36,13 @@ After transformation, the VCF will be like(note that gene, id and mutatioin type
 # vcf_to_mutmatrix.py
 
 Then, the VCF should be annotated by  dbnsfp33a dataset.
+
 Depending your MAF build, the annotation can be conducted by ANNOVAR('http://annovar.openbioinformatics.org/en/latest/user-guide/download/') by following commands:
+
 table_annovar.pl BRCA.vcf humandb/ -buildver hg38 -out BRCA -remove -protocol dbnsfp33a -operation f -nastring . -vcfinput
+
 or
+
 table_annovar.pl BRCA.vcf humandb/ -buildver hg19 -out BRCA -remove -protocol dbnsfp33a -operation f -nastring . -vcfinput
 
 This script generate a mutation matrix based on a pathogenic score from VCF file annotated by dbnsfp33a dataset.
