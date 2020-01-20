@@ -9,10 +9,10 @@ Modules: os, sys, numpy, pandas, math, stats
 ## maf_to_vcf.py　　
 This script generate a VCF of missense mutations from a MAF file  
 
-usage: python3 maf_to_vcf.py input_file output_file  
+Usage: python3 maf_to_vcf.py input_file output_file  
 "input_file": passing a address of inpute file  
 "output_file": passing a address of output file  
-example: python3 maf_to_vcf.py data/BRCA.maf ./BRCA.vcf  
+Example: python3 maf_to_vcf.py data/BRCA.maf ./BRCA.vcf  
 
 The MAF is like:  
 Hugo_Symbol	Entrez_Gene_Id	Center	NCBI_Build	Chromosome	...  
@@ -26,12 +26,10 @@ After transformation, the VCF will be like(note that gene, id and mutatioin type
 
 ## vcf_to_mutmatrix.py　　
 Then, the VCF should be annotated by  dbnsfp33a dataset.  
+
 Depending your MAF build, the annotation can be conducted by ANNOVAR('http://annovar.openbioinformatics.org/en/latest/user-guide/download/') by following commands:  
-table_annovar.pl input_file humandb/ -buildver hg38 -out output_file -remove  
--protocol dbnsfp33a -operation f -nastring . -vcfinput  
-or  
-table_annovar.pl input_file humandb/ -buildver hg19 -out output_file -remove  
--protocol dbnsfp33a -operation f -nastring . -vcfinput 
+
+table_annovar.pl your_input humandb/ -buildver your_build -out your_output -remove -protocol dbnsfp33a -operation f -nastring . -vcfinput  
 
 This script generate a mutation matrix based on a pathogenic score from VCF file annotated by dbnsfp33a dataset. 
 
@@ -43,6 +41,7 @@ usage: python3 vcf_to_mutmatrix.py input_file output_file score impute_missing
 example: python3 vcf_to_mutmatrix.py data/BRCA.hg38_multianno.vcf data/BRCA_mutmatrix.csv M-CAP_rankscore 0  
 
 Note that 25 scoring functions were provided:  
+
 ['SIFT_converted_rankscore', 'Polyphen2_HDIV_rankscore', 'Polyphen2_HVAR_rankscore', 'LRT_converted_rankscore',
  'MutationTaster_converted_rankscore', 'MutationAssessor_score_rankscore', 'FATHMM_converted_rankscore',
  'PROVEAN_converted_rankscore', 'VEST3_rankscore', 'MetaSVM_rankscore', 'MetaLR_rankscore', 'M-CAP_rankscore',
@@ -63,12 +62,12 @@ A1CF,7.833920877399138e-05,7.833920877399138e-05 ...
 ## calculate_uemd.py  
 This script generate uemd and its significance of each gene from a mutation matrix file  
 
-usage: python3 calculate_uemd.py input_file output_file score sig_test  
+Usage: python3 calculate_uemd.py input_file output_file score sig_test  
 "input_file": passing a address of inpute file  
 "output_file": passing a address of output file  　
 "score": passing a scoring function to selected scored mutations in 1000G data  
 "sig_test": passing 1 for significance test, other 0  
-example: python3 calculate_uemd.py data/BRCA_mutmatrix.csv data/BRCA_uemd  M-CAP_rankscore 0  
+Example: python3 calculate_uemd.py data/BRCA_mutmatrix.csv data/BRCA_uemd  M-CAP_rankscore 0  
 
 After calculation, the result will be like:  
 gene,uemd  
