@@ -23,14 +23,19 @@ usage: python3 maf_to_vcf.py input_file output_file
 example: python3 maf_to_vcf.py data/BRCA.maf ./BRCA.vcf
 
 The MAF is like:
+
 Hugo_Symbol	Entrez_Gene_Id	Center	NCBI_Build	Chromosome	...
+
 FOXD3	27022	WUGSC	GRCh38	chr1	...
+
 ...
 
 After transformation, the VCF will be like(note that gene, id and mutatioin type are in first 3 fields of the INFO field):
 
 1	152760163	.	G	A	.	.	KPRP;TCGA-BH-A0HO-01A-11W-A050-09;Missense_Mutation
+
 3	172133474	.	A	G	.	.	FNDC3B;TCGA-BH-A0HO-01A-11W-A050-09;Missense_Mutation
+
 ...
 
 
@@ -72,8 +77,11 @@ Note that 25 scoring functions were provided:
 
 
 The annoated VCF is like:
+
 1	152760163	.	G	A	.	.	KPRP;TCGA-BH-A0HO-01A-11W-A050-09;Missense_Mutation;ANNOVAR_DATE=2018-04-16;SIFT_score=.;SIFT_converted_rankscore=.;SIFT_pred=.;Polyphen2_HDIV_score=0.002 ...
+
 3	172133474	.	A	G	.	.	FNDC3B;TCGA-BH-A0HO-01A-11W-A050-09;Missense_Mutation;ANNOVAR_DATE=2018-04-16;SIFT_score=0.006;SIFT_converted_rankscore=0.614;SIFT_pred=D;Polyphen2_HDIV_score=0.619;Polyphen2_HDIV_rankscore=0.380;Polyphen2_HDIV_pred=P;Polyphen2_HVAR_score=0.311 ...
+
 ...
 
 After transformation, the matrix will be like:
@@ -104,6 +112,9 @@ example: python3 calculate_uemd.py data/BRCA_mutmatrix.csv data/BRCA_uemd  M-CAP
 After calculation, the result will be like:
 
 gene,uemd
+
 A1CF,1.8041124150158794e-16
+
 A2M,0.0
+
 ...
