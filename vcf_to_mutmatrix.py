@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# this script generate a mutation matrix based on a pathogenic score from a maf file
+# this script generate a mutation matrix based on a pathogenic score from a vcf file
 # usage: python3 vcf_to_mutmatrix.py input_file output_file score impute_missing
 # "input_file": passing a address of inpute file
 # "output_file": passing a address of output file
