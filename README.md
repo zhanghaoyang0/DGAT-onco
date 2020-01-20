@@ -40,38 +40,38 @@ Totaly 25 files of functional impacts depending to different scoring function: i
  ```'CADD_raw_rankscore'```, ```'CADD_phred'```, ```'DANN_rankscore'```, ```'fathmm-MKL_coding_rankscore'```, ```'GenoCanyon_score_rankscore'```, ```'integrated_fitCons_score_rankscore'```,
  ```'GERP++_RS_rankscore'```, ```'phyloP100way_vertebrate_rankscore'```, ```'phyloP20way_mammalian_rankscore'```, ```'phastCons100way_vertebrate_rankscore'```,
  ```'phastCons20way_mammalian_rankscore'```, ```'SiPhy_29way_logOdds_rankscore'```, ```'constant'```  
- Note that ```'constant'```  mean the weight of each mutation are equal.
+ Note that ```'constant'```  mean weights of all mutations are equal.
 # Script files
-* ```maf_to_vcf.py```　　
-This script generate a VCF of missense mutations from a MAF file  
+## maf_to_vcf.py  
+* This script generate a VCF of missense mutations from a MAF file  
 
-Usage: python3 maf_to_vcf.py input_file output_file  
+* Usage: python3 maf_to_vcf.py input_file output_file  
 ```input_file```: passing a address of inpute file  
 ```output_file```: passing a address of output file  
-Example: python3 maf_to_vcf.py data/BRCA.maf ./BRCA.vcf  
+* Example: python3 maf_to_vcf.py data/BRCA.maf ./BRCA.vcf  
 
-* ```vcf_to_mutmatrix.py```
+## vcf_to_mutmatrix.py  
 
-This script generate a mutation matrix based on a pathogenic score from VCF file annotated by dbnsfp33a dataset. 
+* This script generate a mutation matrix based on a pathogenic score from VCF file annotated by dbnsfp33a dataset.  
 
-usage: python3 vcf_to_mutmatrix.py input_file output_file score impute_missing  
+* Usage: python3 vcf_to_mutmatrix.py input_file output_file score impute_missing  
 ```input_file```: passing a address of inpute file  
 ```output_file```: passing a address of output file  
 ```score```: passing a scoring function to score mutations  
 "impute mutations": passing a value from 0-1 to score mutations without score annotation  
-example: python3 vcf_to_mutmatrix.py data/BRCA.hg38_multianno.vcf data/BRCA_mutmatrix.csv M-CAP_rankscore 0  
+* Example: python3 vcf_to_mutmatrix.py data/BRCA.hg38_multianno.vcf data/BRCA_mutmatrix.csv M-CAP_rankscore 0  
 
 Note that 25 scoring functions were provided (see above).
 
-* ```calculate_uemd.py``` 
-This script generate uemd and its significance of each gene from a mutation matrix file.  
+## calculate_uemd.py  
+* This script generate uemd and its significance of each gene from a mutation matrix file.  
 
-Usage: python3 calculate_uemd.py input_file output_file score sig_test  
+* Usage: python3 calculate_uemd.py input_file output_file score sig_test  
 ```input_file```: passing a address of inpute file  
 ```output_file```: passing a address of output file  　
 ```score```: passing a scoring function to selected scored mutations in 1000G data  
 ```sig_test```: passing 1 for significance test, other 0  
-Example: python3 calculate_uemd.py data/BRCA_mutmatrix.csv data/BRCA_uemd  M-CAP_rankscore 0  
+* Example: python3 calculate_uemd.py data/BRCA_mutmatrix.csv data/BRCA_uemd  M-CAP_rankscore 0  
 
 After calculation, the result will be like:  
 ## Annotation
