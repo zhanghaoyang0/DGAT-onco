@@ -1,12 +1,12 @@
-## DGAT-onco
+# DGAT-onco
 DGAT-onco was designed to detect oncogenes by comparing the functional impacts profile between cancer population and natural population.  
 Comments and feedbacks: zhanghaoyang0@hotmail.com  
-## Requirements
+# Requirements
 Operation system: Unix/Linux  
 Python 3  
 Modules: os, sys, numpy, pandas, math, stats  
-## Scripts
-# maf_to_vcf.py　　
+# Scripts
+## maf_to_vcf.py　　
 This script generate a VCF of missense mutations from a MAF file  
 
 usage: python3 maf_to_vcf.py input_file output_file  
@@ -24,12 +24,14 @@ After transformation, the VCF will be like(note that gene, id and mutatioin type
 3	172133474	.	A	G	.	.	FNDC3B;TCGA-BH-A0HO-01A-11W-A050-09;Missense_Mutation  
 ...　　
 
-# vcf_to_mutmatrix.py　　
+## vcf_to_mutmatrix.py　　
 Then, the VCF should be annotated by  dbnsfp33a dataset.  
 Depending your MAF build, the annotation can be conducted by ANNOVAR('http://annovar.openbioinformatics.org/en/latest/user-guide/download/') by following commands:  
-table_annovar.pl BRCA.vcf humandb/ -buildver hg38 -out BRCA -remove -protocol dbnsfp33a -operation f -nastring . -vcfinput  
+table_annovar.pl input_file humandb/ -buildver hg38 -out output_file -remove  
+-protocol dbnsfp33a -operation f -nastring . -vcfinput  
 or  
-table_annovar.pl BRCA.vcf humandb/ -buildver hg19 -out BRCA -remove -protocol dbnsfp33a -operation f -nastring . -vcfinput 
+table_annovar.pl input_file humandb/ -buildver hg19 -out output_file -remove  
+-protocol dbnsfp33a -operation f -nastring . -vcfinput 
 
 This script generate a mutation matrix based on a pathogenic score from VCF file annotated by dbnsfp33a dataset. 
 
@@ -58,7 +60,7 @@ gene,TCGA-3C-AAAU-01A-11D-A41F-09,TCGA-3C-AALI-01A-11D-A41F-09 ...
 A1CF,7.833920877399138e-05,7.833920877399138e-05 ...  
 ...　　
 
-# calculate_uemd.py  
+## calculate_uemd.py  
 This script generate uemd and its significance of each gene from a mutation matrix file  
 
 usage: python3 calculate_uemd.py input_file output_file score sig_test  
