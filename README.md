@@ -51,7 +51,7 @@ A2M,0.0
 ```impute mutations```: passing a value from 0-1 to score mutations without score annotation  
 * Example: python3 vcf_to_mutmatrix.py data/BRCA.hg38_multianno.vcf data/BRCA_mutmatrix.csv M-CAP_rankscore 0  
 
-Note that 25 scoring functions were provided (see above).
+Note that 25 scoring functions were provided (see below).
 
 ## calculate_uemd.py  
 * This script generate uemd and its significance of each gene from a mutation matrix file.  
