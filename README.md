@@ -43,7 +43,7 @@ Totaly 25 files of functional impacts depending to different scoring function: i
  Note that ```'constant'```  mean weights of all mutations are equal.
 # Script files
 ## maf_to_vcf.py  
-* This script generate a VCF of missense mutations from a MAF file  
+* This script generate a VCF of missense mutations from a MAF file.  
 
 * Usage: python3 maf_to_vcf.py input_file output_file  
 ```input_file```: passing a address of inpute file  
@@ -58,7 +58,7 @@ Totaly 25 files of functional impacts depending to different scoring function: i
 ```input_file```: passing a address of inpute file  
 ```output_file```: passing a address of output file  
 ```score```: passing a scoring function to score mutations  
-"impute mutations": passing a value from 0-1 to score mutations without score annotation  
+```impute mutations```: passing a value from 0-1 to score mutations without score annotation  
 * Example: python3 vcf_to_mutmatrix.py data/BRCA.hg38_multianno.vcf data/BRCA_mutmatrix.csv M-CAP_rankscore 0  
 
 Note that 25 scoring functions were provided (see above).
@@ -68,7 +68,7 @@ Note that 25 scoring functions were provided (see above).
 
 * Usage: python3 calculate_uemd.py input_file output_file score sig_test  
 ```input_file```: passing a address of inpute file  
-```output_file```: passing a address of output file  　
+```output_file```: passing a address of output file  
 ```score```: passing a scoring function to selected scored mutations in 1000G data  
 ```sig_test```: passing 1 for significance test, other 0  
 * Example: python3 calculate_uemd.py data/BRCA_mutmatrix.csv data/BRCA_uemd  M-CAP_rankscore 0  
