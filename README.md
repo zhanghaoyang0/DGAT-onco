@@ -41,7 +41,6 @@ usage: python3 vcf_to_mutmatrix.py input_file output_file score impute_missing
 example: python3 vcf_to_mutmatrix.py data/BRCA.hg38_multianno.vcf data/BRCA_mutmatrix.csv M-CAP_rankscore 0  
 
 Note that 25 scoring functions were provided:  
-
 ['SIFT_converted_rankscore', 'Polyphen2_HDIV_rankscore', 'Polyphen2_HVAR_rankscore', 'LRT_converted_rankscore',
  'MutationTaster_converted_rankscore', 'MutationAssessor_score_rankscore', 'FATHMM_converted_rankscore',
  'PROVEAN_converted_rankscore', 'VEST3_rankscore', 'MetaSVM_rankscore', 'MetaLR_rankscore', 'M-CAP_rankscore',
@@ -60,7 +59,7 @@ A1CF,7.833920877399138e-05,7.833920877399138e-05 ...
 ...　　
 
 ## calculate_uemd.py  
-This script generate uemd and its significance of each gene from a mutation matrix file  
+This script generate uemd and its significance of each gene from a mutation matrix file.  
 
 Usage: python3 calculate_uemd.py input_file output_file score sig_test  
 "input_file": passing a address of inpute file  
