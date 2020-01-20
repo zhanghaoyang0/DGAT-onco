@@ -2,8 +2,8 @@
 DGAT-onco was designed to detect oncogenes by comparing the functional impacts profile between cancer population and natural population.  
 Comments and feedbacks: zhanghaoyang0@hotmail.com  
 # Requirements
-Operation system: Unix/Linux  
-Python 3  
+* Operation system: Unix/Linux  
+* Python 3  
 Modules: os, sys, numpy, pandas, math, stats  
 # Example files
 * ```BRCA.maf``` is a MAF file like:  
