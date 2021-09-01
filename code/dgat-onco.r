@@ -1,18 +1,4 @@
 #=====================================================================================
-# annovar
-#=====================================================================================
-## annovar
-file_in="./example/BRCA_for_annovar.vcf"
-file_out='./example/BRCA'
-path_annovar='/home/yanglab_data/user/zhanghy/soft_slurm/annovar/'  
-
-$path_annovar\table_annovar.pl \
-$file_in \
-$path_annovar\humandb/ \
--buildver hg19 \
--out $file_out \
--remove -protocol refGene,dbnsfp35c -operation g,f -nastring . -vcfinput -polish
-#=====================================================================================
 # load functions and packages
 #=====================================================================================
 library(dplyr)
@@ -115,24 +101,24 @@ uEMD = function(tBins, nBins, p=100) {
   sum
 }
 
-#=====================================================================================
-# example
-#=====================================================================================
-## load functional impact-based distribution of natural population (1000 genomics[1000g]) 
-file_bin_1000g = './data/bins_1000g.rdata'
-load(file_bin_1000g)
-cat('scoring function in the pre-calculated 1000g bins:\n\n')
-cat(paste0(names(bins_1000g), collapse='\n'))
-cat('\n\nnote that "constant_rankscore" means every mutation has a equal weight\n')
-
-## make vcf for annovar
-make_vcf_for_annovar(chr_col = 'Chromosome', pos_col = 'Start_Position', ref_col = 'Tumor_Seq_Allele1', 
-                     alt_col = 'Tumor_Seq_Allele2', id_col = 'Tumor_Sample_Barcode', 
-                     file_in = './example/BRCA.maf', file_out = './example/BRCA_for_annovar.vcf')
-
-## after annovar, calculate mutation summation score for each cancer individual
-summ = calculate_summation_score(file_in = './example/BRCA.hg19_multianno.txt', id_col = 'Otherinfo11', 
-                                 gene_col = 'Gene.refGene', func_col= 'ExonicFunc.refGene')
-
-## calculate uemd
-calculate_uemd(summ, file_out = './example/BRCA_result.txt', score = 'MutPred_rankscore')
+# #=====================================================================================
+# # example
+# #=====================================================================================
+# ## load functional impact-based distribution of natural population (1000 genomics[1000g]) 
+# file_bin_1000g = './data/bins_1000g.rdata'
+# load(file_bin_1000g)
+# cat('scoring function in the pre-calculated 1000g bins:\n\n')
+# cat(paste0(names(bins_1000g), collapse='\n'))
+# cat('\n\nnote that "constant_rankscore" means every mutation has a equal weight\n')
+# 
+# ## make vcf for annovar
+# make_vcf_for_annovar(chr_col = 'Chromosome', pos_col = 'Start_Position', ref_col = 'Tumor_Seq_Allele1', 
+#                      alt_col = 'Tumor_Seq_Allele2', id_col = 'Tumor_Sample_Barcode', 
+#                      file_in = './example/BRCA.maf', file_out = './example/BRCA_for_annovar.vcf')
+# 
+# ## after annovar, calculate mutation summation score for each cancer individual
+# summ = calculate_summation_score(file_in = './example/BRCA.hg19_multianno.txt', id_col = 'Otherinfo11', 
+#                                  gene_col = 'Gene.refGene', func_col= 'ExonicFunc.refGene')
+# 
+# ## calculate uemd
+# calculate_uemd(summ, file_out = './example/BRCA_result.txt', score = 'MutPred_rankscore')
