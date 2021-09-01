@@ -18,7 +18,7 @@ $path_annovar\humandb/ \
 library(dplyr)
 library(tidyr)
 
-make_vcf_for_annovar = function(chr_col = 'Chromosome', pos_col = 'Start_Position', ref_col = 'Reference_Allele', 
+make_vcf_for_annovar = function(chr_col = 'Chromosome', pos_col = 'Start_Position', ref_col = 'Tumor_Seq_Allele1', 
                                 alt_col = 'Tumor_Seq_Allele1', id_col = 'Tumor_Sample_Barcode', 
                                 file_in = './example/BRCA.maf', file_out = './example/BRCA_for_annovar.vcf'){
   cat(paste0('loading input ', file_in, ' ...\n'))
