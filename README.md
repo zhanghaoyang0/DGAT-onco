@@ -34,7 +34,7 @@ chr1	100535194	100535194	G	C	exonic	MFSD14A	.	nonsynonymous SNV	MFSD14A:NM_03305
 chr1	100547556	100547556	C	G	intronic	MFSD14A	. .	.	. ...  
 ...  
 * ```BRCA_result.txt``` is the uEMD calculated for each gene:  
-* It looks like
+* It looks like:  
 gene	uemd  
 A1CF	0  
 A2M	0  
