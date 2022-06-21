@@ -1,10 +1,11 @@
 # DGAT-onco
-DGAT-onco was designed to detect oncogenes by comparing the functional impact-based profiles between cancer population and natural population.  Reference: https://ieeexplore.ieee.org/document/9669388
+DGAT-onco was designed to detect oncogenes by comparing the functional impact-based profiles between cancer population and natural population.  
 
 It is developped based on the framework of DiffMut (https://github.com/Singh-Lab/Differential-Mutation-Analysis), a frequency-based method.  
 DiffMut detects oncogenes by comparing the frequency-based distribution between cancer and natural population. But it treats each mutation equally.  
 Thus, we uses a scoring function to consider the differnce of their functional impact and make this method.  
-  
+
+Reference: https://ieeexplore.ieee.org/document/9669388
 Comments and feedbacks: zhanghaoyang0@hotmail.com  
   
 Overview  
